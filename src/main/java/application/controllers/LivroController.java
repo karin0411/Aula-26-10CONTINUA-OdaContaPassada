@@ -3,7 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RequestParam;
 
 import application.models.Livro;
 
@@ -29,13 +29,13 @@ public class LivroController {
     return "insert.jsp";
   }
 
-@RequestMapping("value=/insert",method=RequestMethod.POST)
+@RequestMapping(value="/insert",method=RequestMethod.POST)
   public String saveInsert(@RequestParam("titulo")String titulo){
     
     Livro livro=new Livro();
     livro.setTitulo(titulo);
     livrosRepo.save(livro);
       
-    return "redirect:/list";
+    return "redirect:/livro/list";
   }
   }
